@@ -30,3 +30,5 @@ If you are building a microservice, console application or API
 2-symfony new --webapp my_project
 If you are building a traditional web application
 
+3-composer create-project symfony/skeleton my_project
+Install with composer
