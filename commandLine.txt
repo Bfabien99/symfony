@@ -1,0 +1,3 @@
+"cd" pour se deplacer
+"rm" pour supprimer des fichiers
+    -"rf": "r" recursif, "f" force
