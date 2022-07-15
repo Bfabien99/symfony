@@ -13,3 +13,4 @@
 "symfony console debug:router" pour voir toutes ses routes
 
 "symfony console doctrine:database:create" create database
+"symfony console doctrine:fixtures:load" purge database
