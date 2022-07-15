@@ -5,3 +5,8 @@
 # SYMFONY
 "symfony server:start" pour lancer le server
     -"d" lance le server en arrière plan
+
+"symfony server:stop" pour stopper le server
+"symfony open:local" pour ouvrir le navigateur à l'adresse du server
+
+"symfony console make:controller controller_name" pour creer le controller
