@@ -22,3 +22,11 @@ Send responses back to the user
 DO NOT
 Use the View or Controller in your Model
 No SQL inside your controller, let alone views
+
+# CREATE PROJECT
+1- symfony new my_project
+If you are building a microservice, console application or API
+
+2-symfony new --webapp my_project
+If you are building a traditional web application
+
