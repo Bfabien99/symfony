@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MoviesController extends AbstractController
 {
-    #[Route('/movies/{name}', name: 'movies')]
+    #[Route('/movies/{name}', name: 'movies', methods: ['GET', 'HEAD'])]
     public function index(): JsonResponse
     {
         return $this->json([
