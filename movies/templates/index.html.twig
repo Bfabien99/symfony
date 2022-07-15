@@ -3,5 +3,15 @@
 {% block title %} Movies Page {% endblock %}
 
 {% block body %}
-    <h1> {{title}} </h1>
+
+    {% if movies %}
+
+        {% for movie in movies %}
+            <li> {{ movie }} </li>
+        {% endfor %}
+        
+    {% else %}
+        <h3>No movies to show</h3>
+    {% endif %}
+
 {% endblock %}
