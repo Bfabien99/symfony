@@ -11,3 +11,5 @@
 
 "symfony console make:controller controller_name" pour creer le controller
 "symfony console debug:router" pour voir toutes ses routes
+
+"symfony console doctrine:database:create" create database
