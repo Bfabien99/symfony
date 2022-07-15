@@ -1,3 +1,7 @@
 "cd" pour se deplacer
 "rm" pour supprimer des fichiers
     -"rf": "r" recursif, "f" force
+
+# SYMFONY
+"symfony server:start" pour lancer le server
+    -"d" lance le server en arrière plan
