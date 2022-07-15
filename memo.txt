@@ -1,0 +1,4 @@
+camelCase for: variables, functions, methods & arguments.
+snake_case for: configuration parameters and twig template variables.
+UpperCamelCase for: namespace.
+
