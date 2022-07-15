@@ -2,3 +2,23 @@ camelCase for: variables, functions, methods & arguments.
 snake_case for: configuration parameters and twig template variables.
 UpperCamelCase for: namespace.
 
+## MVC
+
+# Model
+Manages the fundamental behaviors and data
+Interacts with the request from input fields
+Respond to instructions
+Notify observers in event-driven systems
+
+# View
+Interface of your application
+Pull data from database, translate it into the view
+
+# Controller
+Take HTTP requests & gets the right data
+Validates user input
+Send responses back to the user
+
+DO NOT
+Use the View or Controller in your Model
+No SQL inside your controller, let alone views
