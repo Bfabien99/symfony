@@ -10,3 +10,4 @@
 "symfony open:local" pour ouvrir le navigateur à l'adresse du server
 
 "symfony console make:controller controller_name" pour creer le controller
+"symfony console debug:router" pour voir toutes ses routes
