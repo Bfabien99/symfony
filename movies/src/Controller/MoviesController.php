@@ -15,7 +15,7 @@ class MoviesController extends AbstractController
         $this->em = $em;
     }
 
-    #[Route('/movies', name: 'movies')]
+    #[Route('/movies', name: 'movies_show')]
     public function index(): Response
     {   
         $repository = $this->em->getRepository(Movie::class);
@@ -24,7 +24,7 @@ class MoviesController extends AbstractController
         return $this->render('index.html.twig',['movies' => $movies]);
     }
 
-    #[Route('/movies/{id}', name: 'movies/{id}')]
+    #[Route('/movies/{id}', name: 'movies')]
     public function show($id): Response
     {   
         $repository = $this->em->getRepository(Movie::class);

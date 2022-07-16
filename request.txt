@@ -1,0 +1,10 @@
+findAll() => SELECT * FROM table
+
+find(n) => SELECT * FROM table WHERE id = n
+
+findBy([],['id' => 'DESC]) => SELECT * FROM table ORDER BY id DESC
+
+findOneBy(['id' => 6, 'title' => 'Dark'], ['id' => 'DESC']) => SELECT * FROM table WHERE id = 6 AND title = 'Dark' ORDER BY id DESC
+
+count([]) => SELECT COUNT() FROM table
+
