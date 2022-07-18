@@ -19,3 +19,4 @@
 "composer require symfony/security-bundle" package for authentification
 "symfony console make:user User" create user
 "symfony console make:registration-form" create registration form
+"symfony console make:auth" create login form
