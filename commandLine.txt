@@ -16,3 +16,4 @@
 "symfony console doctrine:fixtures:load" purge database
 
 "symfony console make:form Entity_nameFormType Entity_name" create form
+"composer require symfony/security-bundle" package for authentification
