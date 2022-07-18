@@ -21,6 +21,11 @@ class MoviesController extends AbstractController
         $this->em = $em;
     }
 
+    #[Route('/', name: 'home')]
+    public function home(){
+        return $this->redirectToRoute('movies');
+    }
+
     #[Route('/movies', name: 'movies')]
     public function index(): Response
     {   
@@ -133,9 +138,14 @@ class MoviesController extends AbstractController
     {   
         $movie = $this->movieRepository->find($id);
 
-        return $this->render('movies/show.html.twig', [
+        if($movie){
+            return $this->render('movies/show.html.twig', [
             'movie' => $movie
-        ]);
+            ]);
+        }else{
+            return $this->redirectToRoute('movies');
+        }
+        
     }
 
 
