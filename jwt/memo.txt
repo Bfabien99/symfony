@@ -1,35 +1,49 @@
-JWT(JSON Web Token) est une norme de transmition des informations entre deux parties de façon sécurisé au travers d'objets JSON.
+* JWT(JSON Web Token) est une norme de transmition des informations entre deux parties de façon sécurisé au travers d'objets JSON.
 
-On peut l'utiliser pour:
-- Autorisation
-- Echange d'informations
+    On peut l'utiliser pour:
+        - Autorisation
+        - Echange d'informations
 
-La structure du JWT :
-Contient 3 parties separées par un point (.):
-=> xxxxx.yyyyy.zzzzz
-Header - Payload - Signature
+    La structure du JWT :
+        Contient 3 parties separées par un point (.):
+        => xxxxx.yyyyy.zzzzz
+        Header - Payload - Signature
 
-Header
-Contient deux parties : le type de token qui est "JWT" et l'algorithm de cryptage utilisé.
-{
-    "alg": "HS256",
-    "typ": "JWT"
-}
+    Header
+        Contient deux parties : le type de token qui est "JWT" et l'algorithm de cryptage utilisé.
+        {
+            "alg": "HS256",
+            "typ": "JWT"
+        }
 
-Ce JSON est encodé en "Base64Url" pour former la première partie du JWT.
+        Ce JSON est encodé en "Base64Url" pour former la première partie du JWT.
 
-Payload
-contient le "claims" (réclamations en français).
-Les "claims" sont des déclarations sur une entité (généralement, l'utilisateur) et des données supplémentaires. Il existe trois types de "claims" : les "claims" enregistrées, publiques et privées.
-"claims" enregistrées : il s'agit d'un ensemble de "claims" prédéfinies qui ne sont pas obligatoires mais recommandées, afin de fournir un ensemble de "claims" utiles et interopérables. Certains d'entre eux sont : iss (émetteur), exp (délai d'expiration), sub (sujet), aud (audience) et autres.
+    Payload
+        contient le "claims" (réclamations en français).
+        Les "claims" sont des déclarations sur une entité (généralement, l'utilisateur) et des données supplémentaires. Il existe trois types de "claims" : les "claims" enregistrées, publiques et privées.
+        "claims" enregistrées : il s'agit d'un ensemble de "claims" prédéfinies qui ne sont pas obligatoires mais recommandées, afin de fournir un ensemble de "claims" utiles et interopérables. Certains d'entre eux sont : iss (émetteur), exp (délai d'expiration), sub (sujet), aud (audience) et autres.
 
-Notez que les noms de "claims" ne comportent que trois caractères, car JWT est censé être compact.
+        Notez que les noms de "claims" ne comportent que trois caractères, car JWT est censé être compact.
 
-"claims" publiques : elles peuvent être définies à volonté par ceux qui utilisent les JWT. Mais pour éviter les collisions, ils doivent être définis dans le registre de jetons Web IANA JSON ou être définis comme un URI contenant un espace de noms résistant aux collisions.
+        "claims" publiques : elles peuvent être définies à volonté par ceux qui utilisent les JWT. Mais pour éviter les collisions, ils doivent être définis dans le registre de jetons Web IANA JSON ou être définis comme un URI contenant un espace de noms résistant aux collisions.
 
-"claims" privées : il s'agit des "claims" personnalisées créées pour partager des informations entre les parties qui acceptent de les utiliser et qui ne sont ni des "claims" enregistrées ni publiques.
-{
-  "sub": "1234567890",
-  "name": "John Doe",
-  "admin": true
-}
+        "claims" privées : il s'agit des "claims" personnalisées créées pour partager des informations entre les parties qui acceptent de les utiliser et qui ne sont ni des "claims" enregistrées ni publiques.
+        {
+        "sub": "1234567890",
+        "name": "John Doe",
+        "admin": true
+        }
+        Le Payload est ensuite encodée en Base64Url pour former la deuxième partie du jeton Web JSON.
+
+
+    Signature
+        Pour créer la partie signature, vous devez prendre le Header encodé, le Payload encodé, un secret, l'algorithme spécifié dans le Header et le signer.
+
+        Par exemple si vous souhaitez utiliser l'algorithme "HMAC SHA256", la signature sera créée de la manière suivante :
+        HMACSHA256(
+        base64UrlEncode(header) + "." +
+        base64UrlEncode(payload),
+        secret)
+
+        La signature est utilisée pour vérifier que le message n'a pas été modifié en cours de route et, dans le cas de jetons signés avec une clé privée, elle peut également vérifier que l'expéditeur du JWT est bien celui qu'il prétend être.
+
